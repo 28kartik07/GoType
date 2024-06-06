@@ -80,7 +80,10 @@ passport.deserializeUser(usermodel.deserializeUser());
 const paraschema = new mongoose.Schema({
     para : String
 });
+
 const paramodel = mongoose.model("paragraph",paraschema);
+
+
 /////////////////////////////////////////////////////////
 var paragraph="";
 function parasplit()
@@ -95,7 +98,8 @@ app.route("/")
 .get(function(req,res){
     
     paramodel.aggregate([{$sample : {size : 1}}]).then(result=>{
-        paragraph = result[0].para;
+        if(result.length > 0)
+            paragraph = result[0].para;
         parasplit();
     }).then(result=>{
         if(req.isAuthenticated())
@@ -114,7 +118,7 @@ app.route("/")
     if(req.user)
     {
         usermodel.findOne({_id : req.user._id }).then(result =>{
-            if(result.Speed.length === 0)
+            if(result.Speed.length < 10)
             {
                 usermodel.updateOne({_id : req.user._id} , {$push : {Speed : wpm , Accuracy : acc}}).then(result => {
                     
@@ -224,6 +228,6 @@ app.route("/logout")
     res.redirect("/");
 });
 
-app.listen("3000",function(req,res){
+app.listen("8000",function(req,res){
     console.log("server started");
 });

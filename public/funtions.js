@@ -131,13 +131,13 @@ function reset()
 {
     i=0;
     j=0;
-    index=0;
+    // index=0;
     b=""; 
     ////////timer reset///////////////
     total=0; count=0; time=currenttime;
     clearInterval(y);
     y=null;
-    document.querySelector(".timer").innerHTML = "&nbsp;";
+    document.querySelector(".timer").innerHTML = "&nbsp;";        
     document.querySelector(".text").disabled = false;
     document.querySelector(".text").autofocus = true;
     ///////timer reset///////////////
@@ -172,7 +172,7 @@ function check(x)
         total++;
         if(words[i]==b)
         {
-            console.log(words[i],b);
+            // console.log(words[i],b);
             count++;
             spans[i].classList.remove("incorrect");
             spans[i].classList.remove("highlight");
