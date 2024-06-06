@@ -21,17 +21,17 @@
             
             <div class="sidebar"> 
                 <div class="sideitem"><h2>Time</h2></div>
-                <div style="margin-top: 2rem;">   
+                <div style="margin-top: 2rem;" class="timer-option">   
                     <input type="checkbox"  class="ch" id="first" name="option" checked>
                     <label for="first" class="check"><h3>15s</h3></label>
                 </div>
 
-                <div>  
+                <div class="timer-option">  
                     <input type="checkbox"  class="ch" id="second" name="option">
                     <label for="second" class="check"><h3>30s</h3></label>
                 </div>
 
-                <div>   
+                <div class="timer-option">   
                     <input type="checkbox"  class="ch" id="third" name="option">
                     <label for="third" class="check"><h3>60s</h3></label>
                 </div>
@@ -56,7 +56,7 @@
                     <div style="text-align: left; width: 100%;">
                         <h3 class="timer" style="margin: 1rem; display: inline; color:white;-webkit-text-stroke: 1.3px black; font-weight: 800;">&nbsp;</h3>
                     </div>
-                    <textarea maxlength="50" class="text" placeholder="enter text here" autofocus="on" onkeypress="starttimer()"></textarea>
+                    <textarea id="typing-area" maxlength="50" class="text" placeholder="enter text here" autofocus="on" onkeypress="starttimer()"></textarea>
                     <div class="reset"><button class="btn resetbutton btn-outline-light">Reset</button></div>
                 </div>
                 
