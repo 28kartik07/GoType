@@ -8,7 +8,7 @@ const passportlocalmongoose = require("passport-local-mongoose");
 
 const mongoose = require("mongoose");
 
-const PORT = 5000;
+const PORT = 3000;
 const URL = `http://localhost:${PORT}/`;
 
 const app = express();
@@ -92,10 +92,23 @@ const paramodel = mongoose.model("paragraph", paraschema);
 var paragraph = "";
 function parasplit() {
   paragraph = paragraph.toLowerCase();
-  paragraph = paragraph.replace(/[^a-zA-Z0-9 ]/g, "");
+  paragraph = paragraph.replace(/[^a-zA-Z ]/g, "");
   var words = paragraph.split(" ");
 }
 
+// const newpara1 = new paramodel({
+//   para : "Generating random paragraphs can be an excellent way for writers to get their creative flow going at the beginning of the day. The writer has no idea what topic the random paragraph will be about when it appears. This forces the writer to use creativity to complete one of three common writing challenges. The writer can use the paragraph as the first one of a short story and build upon it. A second option is to use the random paragraph somewhere in a short story they create. The third option is to have the random paragraph be the ending paragraph in a short story. No matter which of these challenges is undertaken, the writer is forced to use creativity to incorporate the paragraph into their writing."
+// })
+// const newpara2 = new paramodel({
+//   para : "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers."
+// })
+// const newpara3 = new paramodel({
+//   para : "There are usually about 200 words in a paragraph, but this can vary widely. Most paragraphs focus on a single idea that's expressed with an introductory sentence, then followed by two or more supporting sentences about the idea. A short paragraph may not reach even 50 words while long paragraphs can be over 400 words long, but generally speaking they tend to be approximately 200 words in length."
+// })
+
+// newpara1.save();
+// newpara2.save();
+// newpara3.save();
 ////////////////////////////////////////////////////////
 app
   .route("/")

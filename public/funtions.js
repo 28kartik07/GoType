@@ -68,7 +68,7 @@ function starttimer() {
           body: JSON.stringify(data),
         }).then((response) => response.json());
       }
-    }, 1000);
+    },1000);
   }
 }
 
@@ -129,7 +129,6 @@ function reset() {
   y = null;
   document.querySelector(".timer").innerHTML = "&nbsp;";
   document.querySelector(".text").disabled = false;
-  document.querySelector(".text").autofocus = true;
   ///////timer reset///////////////
 
   /////////shuffle//////////////////
@@ -157,7 +156,6 @@ function check(x) {
   if (x.key == " ") {
     total++;
     if (words[i] == b) {
-      console.log(words[i], b);
       count++;
       spans[i].classList.remove("incorrect");
       spans[i].classList.remove("highlight");
